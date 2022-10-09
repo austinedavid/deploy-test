@@ -49,6 +49,7 @@ const Next = styled.div`
     z-index: 999;
     top: 50%;
     right: 10px;
+    right: 0;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
@@ -59,12 +60,14 @@ const Back = styled.div`
     
     position: absolute;
     background-color: #9fd99f;
+    background-color: rgba(256,256,256, 0.3);
     padding: 10px;
     border-radius: 10px;
     color: white;
     z-index: 999;
     top: 50%;
     left: 10px;
+    left: 0;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
@@ -80,6 +83,7 @@ const Carousel = () => {
     // carousel button function controls
     const handleBack = ()=>{
         setpage((prev)=> prev +1)
+
     }
 
     const handleNext = ()=>{
@@ -103,6 +107,7 @@ const Carousel = () => {
         <Wrapper>
             {page > 0 && <Back onClick={handleBack}><ArrowBackIosNewIcon/></Back> }
             
+            <Back onClick={handleBack}><ArrowBackIosNewIcon/></Back>
             <Ul page={page}>
                 <Li ><Img src={photo1}/></Li>
                 <Li><Img src={photo2}/></Li>
@@ -111,6 +116,7 @@ const Carousel = () => {
             </Ul>
             {page < 3 && <Next onClick={handleNext}><ArrowForwardIosIcon/></Next>}
             
+            <Next onClick={handleNext}><ArrowForwardIosIcon/></Next>
         </Wrapper>
         
     </Container>
